@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MySql.Data.MySqlClient;
+using RecruitmentMasterApi.Models;
 
 namespace RecruitmentMasterApi.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
+        /*// GET api/values
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -34,6 +36,39 @@ namespace RecruitmentMasterApi.Controllers
         // DELETE api/values/5
         public void Delete(int id)
         {
+        }*/
+        public IEnumerable<employee_recruit> GetRecruits()
+        {
+            using (employmentEntities entities = new employmentEntities())
+            {
+                return entities.employee_recruit.ToList();
+            }
         }
+
+        public employee_recruit GetRecruits(string id)
+        {
+            using (employmentEntities entities = new employmentEntities())
+            {
+                return entities.employee_recruit.FirstOrDefault(e => e.Id == id);
+            }
+        }
+
+        public IEnumerable<user> GetUsers()
+        {
+            using (employmentEntities entities = new employmentEntities())
+            {
+                return entities.users.ToList();
+            }
+        }
+
+        public user GetUsers(string Id)
+        {
+            using (employmentEntities entities = new employmentEntities())
+            {
+                return entities.users.FirstOrDefault(e => e.id == Id);
+            }
+        }
+
+       
     }
 }

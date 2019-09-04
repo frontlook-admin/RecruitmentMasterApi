@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="employmentModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="employee_recruit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="intv_no" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="m_name" Type="varchar" MaxLength="200" />
+          <Property Name="l_name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="qualification" Type="varchar" MaxLength="50" />
+          <Property Name="school" Type="varchar" MaxLength="200" />
+          <Property Name="adr1" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="adr2" Type="varchar" MaxLength="200" />
+          <Property Name="adr3" Type="varchar" MaxLength="200" />
+          <Property Name="st_no" Type="varchar" MaxLength="200" />
+          <Property Name="st_name" Type="varchar" MaxLength="200" />
+          <Property Name="city" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="pin" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="employment_type" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="interview_date" Type="date" />
+          <Property Name="online_diary_no" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="dispatch_no" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="join_date" Type="date" />
+          <Property Name="dated" Type="date" />
+          <Property Name="gen_applied_post" Type="varchar" MaxLength="200" />
+          <Property Name="gen_basic_pay" Type="varchar" MaxLength="200" />
+          <Property Name="gen_pay_scale_level" Type="varchar" MaxLength="200" />
+          <Property Name="gen_payscale" Type="varchar" MaxLength="200" />
+          <Property Name="addhoc_net_salary" Type="varchar" MaxLength="200" />
+          <Property Name="addhoc_tenure" Type="varchar" MaxLength="200" />
+          <Property Name="addhoc_from_date" Type="date" />
+          <Property Name="addhoc_to_date" Type="date" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="f_name" Type="varchar" MaxLength="45" />
+          <Property Name="m_name" Type="varchar" MaxLength="45" />
+          <Property Name="l_name" Type="varchar" MaxLength="45" />
+          <Property Name="p_address" Type="varchar" MaxLength="300" />
+          <Property Name="l_address" Type="varchar" MaxLength="300" />
+          <Property Name="email" Type="varchar" MaxLength="45" />
+          <Property Name="phone" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="version">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="version" Type="bigint" Nullable="false" />
+          <Property Name="update_time" Type="timestamp" Precision="6" Nullable="false" />
+        </EntityType>
+        <Function Name="employee_recruit_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="employment">
+          <Parameter Name="p_id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="employee_recruit_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="employment">
+          <Parameter Name="p_Id" Type="varchar" Mode="In" />
+          <Parameter Name="p_intv_no" Type="bigint" Mode="In" />
+          <Parameter Name="p_f_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_m_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_l_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_qualification" Type="varchar" Mode="In" />
+          <Parameter Name="p_school" Type="varchar" Mode="In" />
+          <Parameter Name="p_adr1" Type="varchar" Mode="In" />
+          <Parameter Name="p_adr2" Type="varchar" Mode="In" />
+          <Parameter Name="p_adr3" Type="varchar" Mode="In" />
+          <Parameter Name="p_st_no" Type="varchar" Mode="In" />
+          <Parameter Name="p_st_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_city" Type="varchar" Mode="In" />
+          <Parameter Name="p_state" Type="varchar" Mode="In" />
+          <Parameter Name="p_pin" Type="varchar" Mode="In" />
+          <Parameter Name="p_employment_type" Type="varchar" Mode="In" />
+          <Parameter Name="p_interview_date" Type="date" Mode="In" />
+          <Parameter Name="p_online_diary_no" Type="varchar" Mode="In" />
+          <Parameter Name="p_dispatch_no" Type="varchar" Mode="In" />
+          <Parameter Name="p_join_date" Type="date" Mode="In" />
+          <Parameter Name="p_dated" Type="date" Mode="In" />
+          <Parameter Name="p_gen_applied_post" Type="varchar" Mode="In" />
+          <Parameter Name="p_gen_basic_pay" Type="varchar" Mode="In" />
+          <Parameter Name="p_gen_pay_scale_level" Type="varchar" Mode="In" />
+          <Parameter Name="p_gen_payscale" Type="varchar" Mode="In" />
+          <Parameter Name="p_addhoc_net_salary" Type="varchar" Mode="In" />
+          <Parameter Name="p_addhoc_tenure" Type="varchar" Mode="In" />
+          <Parameter Name="p_addhoc_from_date" Type="date" Mode="In" />
+          <Parameter Name="p_addhoc_to_date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="employee_recruit_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="employment">
+          <Parameter Name="p_Id" Type="varchar" Mode="In" />
+          <Parameter Name="p_intv_no" Type="bigint" Mode="In" />
+          <Parameter Name="p_f_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_m_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_l_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_qualification" Type="varchar" Mode="In" />
+          <Parameter Name="p_school" Type="varchar" Mode="In" />
+          <Parameter Name="p_adr1" Type="varchar" Mode="In" />
+          <Parameter Name="p_adr2" Type="varchar" Mode="In" />
+          <Parameter Name="p_adr3" Type="varchar" Mode="In" />
+          <Parameter Name="p_st_no" Type="varchar" Mode="In" />
+          <Parameter Name="p_st_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_city" Type="varchar" Mode="In" />
+          <Parameter Name="p_state" Type="varchar" Mode="In" />
+          <Parameter Name="p_pin" Type="varchar" Mode="In" />
+          <Parameter Name="p_employment_type" Type="varchar" Mode="In" />
+          <Parameter Name="p_interview_date" Type="date" Mode="In" />
+          <Parameter Name="p_online_diary_no" Type="varchar" Mode="In" />
+          <Parameter Name="p_dispatch_no" Type="varchar" Mode="In" />
+          <Parameter Name="p_join_date" Type="date" Mode="In" />
+          <Parameter Name="p_dated" Type="date" Mode="In" />
+          <Parameter Name="p_gen_applied_post" Type="varchar" Mode="In" />
+          <Parameter Name="p_gen_basic_pay" Type="varchar" Mode="In" />
+          <Parameter Name="p_gen_pay_scale_level" Type="varchar" Mode="In" />
+          <Parameter Name="p_gen_payscale" Type="varchar" Mode="In" />
+          <Parameter Name="p_addhoc_net_salary" Type="varchar" Mode="In" />
+          <Parameter Name="p_addhoc_tenure" Type="varchar" Mode="In" />
+          <Parameter Name="p_addhoc_from_date" Type="date" Mode="In" />
+          <Parameter Name="p_addhoc_to_date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="user_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="employment">
+          <Parameter Name="p_id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="user_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="employment">
+          <Parameter Name="p_id" Type="varchar" Mode="In" />
+          <Parameter Name="p_f_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_m_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_l_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_p_address" Type="varchar" Mode="In" />
+          <Parameter Name="p_l_address" Type="varchar" Mode="In" />
+          <Parameter Name="p_email" Type="varchar" Mode="In" />
+          <Parameter Name="p_phone" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="user_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="employment">
+          <Parameter Name="p_id" Type="varchar" Mode="In" />
+          <Parameter Name="p_f_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_m_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_l_name" Type="varchar" Mode="In" />
+          <Parameter Name="p_p_address" Type="varchar" Mode="In" />
+          <Parameter Name="p_l_address" Type="varchar" Mode="In" />
+          <Parameter Name="p_email" Type="varchar" Mode="In" />
+          <Parameter Name="p_phone" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="employmentModelStoreContainer">
+          <EntitySet Name="employee_recruit" EntityType="Self.employee_recruit" Schema="employment" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="employment" store:Type="Tables" />
+          <EntitySet Name="version" EntityType="Self.version" Schema="employment" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="employmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="employee_recruit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="intv_no" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="m_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="l_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="school" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="adr1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adr2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="adr3" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="st_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="st_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pin" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="employment_type" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="interview_date" Type="DateTime" />
+          <Property Name="online_diary_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dispatch_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="join_date" Type="DateTime" />
+          <Property Name="dated" Type="DateTime" />
+          <Property Name="gen_applied_post" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="gen_basic_pay" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="gen_pay_scale_level" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="gen_payscale" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="addhoc_net_salary" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="addhoc_tenure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="addhoc_from_date" Type="DateTime" />
+          <Property Name="addhoc_to_date" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="m_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="l_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="p_address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="l_address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="version">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="version1" Type="Int64" Nullable="false" />
+          <Property Name="update_time" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="employmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="employee_recruit" EntityType="Self.employee_recruit" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="versions" EntityType="Self.version" />
+          <FunctionImport Name="employee_recruit_delete">
+          <Parameter Name="p_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="employee_recruit_insert">
+            <Parameter Name="p_Id" Mode="In" Type="String" />
+            <Parameter Name="p_intv_no" Mode="In" Type="Int64" />
+            <Parameter Name="p_f_name" Mode="In" Type="String" />
+            <Parameter Name="p_m_name" Mode="In" Type="String" />
+            <Parameter Name="p_l_name" Mode="In" Type="String" />
+            <Parameter Name="p_qualification" Mode="In" Type="String" />
+            <Parameter Name="p_school" Mode="In" Type="String" />
+            <Parameter Name="p_adr1" Mode="In" Type="String" />
+            <Parameter Name="p_adr2" Mode="In" Type="String" />
+            <Parameter Name="p_adr3" Mode="In" Type="String" />
+            <Parameter Name="p_st_no" Mode="In" Type="String" />
+            <Parameter Name="p_st_name" Mode="In" Type="String" />
+            <Parameter Name="p_city" Mode="In" Type="String" />
+            <Parameter Name="p_state" Mode="In" Type="String" />
+            <Parameter Name="p_pin" Mode="In" Type="String" />
+            <Parameter Name="p_employment_type" Mode="In" Type="String" />
+            <Parameter Name="p_interview_date" Mode="In" Type="DateTime" />
+            <Parameter Name="p_online_diary_no" Mode="In" Type="String" />
+            <Parameter Name="p_dispatch_no" Mode="In" Type="String" />
+            <Parameter Name="p_join_date" Mode="In" Type="DateTime" />
+            <Parameter Name="p_dated" Mode="In" Type="DateTime" />
+            <Parameter Name="p_gen_applied_post" Mode="In" Type="String" />
+            <Parameter Name="p_gen_basic_pay" Mode="In" Type="String" />
+            <Parameter Name="p_gen_pay_scale_level" Mode="In" Type="String" />
+            <Parameter Name="p_gen_payscale" Mode="In" Type="String" />
+            <Parameter Name="p_addhoc_net_salary" Mode="In" Type="String" />
+            <Parameter Name="p_addhoc_tenure" Mode="In" Type="String" />
+            <Parameter Name="p_addhoc_from_date" Mode="In" Type="DateTime" />
+            <Parameter Name="p_addhoc_to_date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="employee_recruit_update">
+            <Parameter Name="p_Id" Mode="In" Type="String" />
+            <Parameter Name="p_intv_no" Mode="In" Type="Int64" />
+            <Parameter Name="p_f_name" Mode="In" Type="String" />
+            <Parameter Name="p_m_name" Mode="In" Type="String" />
+            <Parameter Name="p_l_name" Mode="In" Type="String" />
+            <Parameter Name="p_qualification" Mode="In" Type="String" />
+            <Parameter Name="p_school" Mode="In" Type="String" />
+            <Parameter Name="p_adr1" Mode="In" Type="String" />
+            <Parameter Name="p_adr2" Mode="In" Type="String" />
+            <Parameter Name="p_adr3" Mode="In" Type="String" />
+            <Parameter Name="p_st_no" Mode="In" Type="String" />
+            <Parameter Name="p_st_name" Mode="In" Type="String" />
+            <Parameter Name="p_city" Mode="In" Type="String" />
+            <Parameter Name="p_state" Mode="In" Type="String" />
+            <Parameter Name="p_pin" Mode="In" Type="String" />
+            <Parameter Name="p_employment_type" Mode="In" Type="String" />
+            <Parameter Name="p_interview_date" Mode="In" Type="DateTime" />
+            <Parameter Name="p_online_diary_no" Mode="In" Type="String" />
+            <Parameter Name="p_dispatch_no" Mode="In" Type="String" />
+            <Parameter Name="p_join_date" Mode="In" Type="DateTime" />
+            <Parameter Name="p_dated" Mode="In" Type="DateTime" />
+            <Parameter Name="p_gen_applied_post" Mode="In" Type="String" />
+            <Parameter Name="p_gen_basic_pay" Mode="In" Type="String" />
+            <Parameter Name="p_gen_pay_scale_level" Mode="In" Type="String" />
+            <Parameter Name="p_gen_payscale" Mode="In" Type="String" />
+            <Parameter Name="p_addhoc_net_salary" Mode="In" Type="String" />
+            <Parameter Name="p_addhoc_tenure" Mode="In" Type="String" />
+            <Parameter Name="p_addhoc_from_date" Mode="In" Type="DateTime" />
+            <Parameter Name="p_addhoc_to_date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="user_delete">
+          <Parameter Name="p_id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="user_insert">
+            <Parameter Name="p_id" Mode="In" Type="String" />
+            <Parameter Name="p_f_name" Mode="In" Type="String" />
+            <Parameter Name="p_m_name" Mode="In" Type="String" />
+            <Parameter Name="p_l_name" Mode="In" Type="String" />
+            <Parameter Name="p_p_address" Mode="In" Type="String" />
+            <Parameter Name="p_l_address" Mode="In" Type="String" />
+            <Parameter Name="p_email" Mode="In" Type="String" />
+            <Parameter Name="p_phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="user_update">
+            <Parameter Name="p_id" Mode="In" Type="String" />
+            <Parameter Name="p_f_name" Mode="In" Type="String" />
+            <Parameter Name="p_m_name" Mode="In" Type="String" />
+            <Parameter Name="p_l_name" Mode="In" Type="String" />
+            <Parameter Name="p_p_address" Mode="In" Type="String" />
+            <Parameter Name="p_l_address" Mode="In" Type="String" />
+            <Parameter Name="p_email" Mode="In" Type="String" />
+            <Parameter Name="p_phone" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="employmentModelStoreContainer" CdmEntityContainer="employmentEntities">
+          <EntitySetMapping Name="employee_recruit">
+            <EntityTypeMapping TypeName="employmentModel.employee_recruit">
+              <MappingFragment StoreEntitySet="employee_recruit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="intv_no" ColumnName="intv_no" />
+                <ScalarProperty Name="f_name" ColumnName="f_name" />
+                <ScalarProperty Name="m_name" ColumnName="m_name" />
+                <ScalarProperty Name="l_name" ColumnName="l_name" />
+                <ScalarProperty Name="qualification" ColumnName="qualification" />
+                <ScalarProperty Name="school" ColumnName="school" />
+                <ScalarProperty Name="adr1" ColumnName="adr1" />
+                <ScalarProperty Name="adr2" ColumnName="adr2" />
+                <ScalarProperty Name="adr3" ColumnName="adr3" />
+                <ScalarProperty Name="st_no" ColumnName="st_no" />
+                <ScalarProperty Name="st_name" ColumnName="st_name" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="pin" ColumnName="pin" />
+                <ScalarProperty Name="employment_type" ColumnName="employment_type" />
+                <ScalarProperty Name="interview_date" ColumnName="interview_date" />
+                <ScalarProperty Name="online_diary_no" ColumnName="online_diary_no" />
+                <ScalarProperty Name="dispatch_no" ColumnName="dispatch_no" />
+                <ScalarProperty Name="join_date" ColumnName="join_date" />
+                <ScalarProperty Name="dated" ColumnName="dated" />
+                <ScalarProperty Name="gen_applied_post" ColumnName="gen_applied_post" />
+                <ScalarProperty Name="gen_basic_pay" ColumnName="gen_basic_pay" />
+                <ScalarProperty Name="gen_pay_scale_level" ColumnName="gen_pay_scale_level" />
+                <ScalarProperty Name="gen_payscale" ColumnName="gen_payscale" />
+                <ScalarProperty Name="addhoc_net_salary" ColumnName="addhoc_net_salary" />
+                <ScalarProperty Name="addhoc_tenure" ColumnName="addhoc_tenure" />
+                <ScalarProperty Name="addhoc_from_date" ColumnName="addhoc_from_date" />
+                <ScalarProperty Name="addhoc_to_date" ColumnName="addhoc_to_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="employmentModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_name" ColumnName="f_name" />
+                <ScalarProperty Name="m_name" ColumnName="m_name" />
+                <ScalarProperty Name="l_name" ColumnName="l_name" />
+                <ScalarProperty Name="p_address" ColumnName="p_address" />
+                <ScalarProperty Name="l_address" ColumnName="l_address" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="versions">
+            <EntityTypeMapping TypeName="employmentModel.version">
+              <MappingFragment StoreEntitySet="version">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="version1" ColumnName="version" />
+                <ScalarProperty Name="update_time" ColumnName="update_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="employee_recruit_delete" FunctionName="employmentModel.Store.employee_recruit_delete" />
+          <FunctionImportMapping FunctionImportName="employee_recruit_insert" FunctionName="employmentModel.Store.employee_recruit_insert" />
+          <FunctionImportMapping FunctionImportName="employee_recruit_update" FunctionName="employmentModel.Store.employee_recruit_update" />
+          <FunctionImportMapping FunctionImportName="user_delete" FunctionName="employmentModel.Store.user_delete" />
+          <FunctionImportMapping FunctionImportName="user_insert" FunctionName="employmentModel.Store.user_insert" />
+          <FunctionImportMapping FunctionImportName="user_update" FunctionName="employmentModel.Store.user_update" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
