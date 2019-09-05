@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="employmentModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="employmentModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="employee_recruit">
           <Key>
             <PropertyRef Name="Id" />
@@ -153,7 +153,8 @@
           <EntitySet Name="user" EntityType="Self.user" Schema="employment" store:Type="Tables" />
           <EntitySet Name="version" EntityType="Self.version" Schema="employment" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="employmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -217,7 +218,7 @@
           <EntitySet Name="users" EntityType="Self.user" />
           <EntitySet Name="versions" EntityType="Self.version" />
           <FunctionImport Name="employee_recruit_delete">
-          <Parameter Name="p_id" Mode="In" Type="String" />
+            <Parameter Name="p_id" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="employee_recruit_insert">
             <Parameter Name="p_Id" Mode="In" Type="String" />
@@ -282,7 +283,7 @@
             <Parameter Name="p_addhoc_to_date" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="user_delete">
-          <Parameter Name="p_id" Mode="In" Type="String" />
+            <Parameter Name="p_id" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="user_insert">
             <Parameter Name="p_id" Mode="In" Type="String" />

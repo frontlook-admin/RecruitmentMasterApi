@@ -37,38 +37,23 @@ namespace RecruitmentMasterApi.Controllers
         public void Delete(int id)
         {
         }*/
-        public IEnumerable<employee_recruit> GetRecruits()
+        /*public int del(string id, string action)
         {
             using (employmentEntities entities = new employmentEntities())
             {
-                return entities.employee_recruit.ToList();
+                if (action == "employee")
+                {
+                    return entities.employee_recruit_delete(id);
+                }
+                else if (action == "user")
+                {
+                    return entities.user_delete(id);
+                }
+                else
+                {
+                    return 0;
+                }
             }
-        }
-
-        public employee_recruit GetRecruits(string id)
-        {
-            using (employmentEntities entities = new employmentEntities())
-            {
-                return entities.employee_recruit.FirstOrDefault(e => e.Id == id);
-            }
-        }
-
-        public IEnumerable<user> GetUsers()
-        {
-            using (employmentEntities entities = new employmentEntities())
-            {
-                return entities.users.ToList();
-            }
-        }
-
-        public user GetUsers(string Id)
-        {
-            using (employmentEntities entities = new employmentEntities())
-            {
-                return entities.users.FirstOrDefault(e => e.id == Id);
-            }
-        }
-
-       
+        }*/
     }
 }
